@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_write(char format, va_list ap)
+static int	ft_write(char format, va_list ap)
 {
 	int	counter;
 
@@ -47,10 +47,12 @@ int	ft_printf(const char *format, ...)
 	va_start(ap, format);
 	while (*format)
 	{
+		if (*format == '%' && *(format + 1) == 0)
+			return (counter);
 		if (*format == '%')
 			counter += ft_write(*(++format), ap);
 		else
-			counter += write(1, format, 1);
+			counter += ft_print_char(*format);
 		format++;
 	}
 	va_end(ap);

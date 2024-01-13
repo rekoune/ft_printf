@@ -19,12 +19,12 @@ int	ft_print_string(char *str)
 	counter = 0;
 	if (!str)
 	{
-		counter += write(1, "(null)", 6);
+		counter += ft_print_string("(null)");
 		return (counter);
 	}
 	while (*str)
 	{
-		counter += write(1, str, 1);
+		counter += ft_print_char(*str);
 		str++;
 	}
 	return (counter);

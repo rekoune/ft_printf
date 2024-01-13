@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	reverse(char *s, int i)
+static int	reverse(char *s, int i)
 {
 	int		counter;
 	char	str[12];
@@ -43,7 +43,7 @@ int	ft_print_digit(long nb)
 	sign = 1;
 	i = 0;
 	if (nb == 0)
-		counter += write(1, "0", 1);
+		counter += ft_print_char('0');
 	if (nb < 0)
 	{
 		nb = -nb;

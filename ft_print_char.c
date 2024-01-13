@@ -14,9 +14,6 @@
 
 int	ft_print_char(char c)
 {
-	int	counter;
-
-	counter = 0;
-	counter += write(1, &c, 1);
-	return (counter);
+	write(1, &c, 1);
+	return (1);
 }

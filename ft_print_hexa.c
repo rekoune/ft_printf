@@ -25,7 +25,7 @@ int	ft_print_hexa(unsigned long nb, char c)
 	if (c == 'p')
 		counter += ft_print_string("0x");
 	if (nb == 0)
-		counter += write(1, "0", 1);
+		counter += ft_print_char('0');
 	if (c == 'X')
 		base = "0123456789ABCDEF";
 	while (nb)
@@ -36,6 +36,6 @@ int	ft_print_hexa(unsigned long nb, char c)
 	}
 	str[i--] = '\0';
 	while (i >= 0)
-		counter += write(1, &str[i--], 1);
+		counter += ft_print_char(str[i--]);
 	return (counter);
 }
